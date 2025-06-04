@@ -1,0 +1,71 @@
+Jobs = 10
+eps: .4 seems reasonable
+depth 14
+lr = 0.0001
+(eta = 0.005)
+
+In the below, rows correspond to accuracy and columns correspond to scons.
+
+Eps observations: aim for accuracy, not for scons
+
+1 	.6	 .6 	1.4
+.6(1)	.4	.4	.4
+.3	.3	.3	.3
+
+Depth: basically just use 14
+14	12	10	6
+14(14)	14	14	14
+14	14	14	14
+
+eta: higher acc uses larger
+1	1	5	1
+1(1)	1	1	5
+5	5	5	5
+
+weight: ugh random
+1	.1	.1	.1
+.1(1)	1	1	1
+.1	.1	1	1
+
+lambda: also pretty random
+.0001 	1e-6	1e-6	.0001
+.0001()	1e-6	1e-6	1e-6
+.0001	.0001	1e-6	1e-6
+
+lr: more steps at lower lr seems like actually the best plan
+based on my memory of the tensorboard output
+0.001	0.0001	0.0001	0.001
+0.001	0.0001	0.0001	0.001
+0.0001	0.0001	0.0001	0.001
+
+Higher accuracy
+.81
+
+	Scons	accc	max	rms	
+	0.93	.8099	.128	.0937*
+	0.94	.8097	.1334	.1036*
+	0.945	.8106	.1388	.1054* (might not be as good irl)
+	0.95	.8097	.1607	.1220 - 
+
+.815
+	Scons	accc	max	rms
+	0.93	.8160	.1442	.1092*
+	(0.93	.8144	.1406	.1042*	
+	0.94	.8147	.1451	.1105 *eee on the cusp.
+	0.945	"	"	"
+	0.95	.8158	.1477	.1158 ~
+
+.82
+	Scons	accc	max	rms
+	0.93	.8208	.1649	.1279- (better only than baselines)
+	0.94	.8208	"	"  This is a good point though.
+	0.945	.8210	.1693	.1351-
+	0.95	.8200	.1648	.1312-
+	(also the previous point is still here)
+
+.16/.13 beats baselines by .04/.036, .056, .049 (so quite a bit)
+But loses to the worst (reweigh) by .03/.04
+(so pretty much in the middle)
+Loses to adv deb by .05/.05 (in the middle of NNs as well)
+
+The .815 with scons .95 looks pretty good

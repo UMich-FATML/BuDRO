@@ -1,0 +1,332 @@
+Selecting parameters based on the averaged graph for testing with adult
+Lower accuracy higher fairness parameters considered here
+
+
+	Scons	Acc	MAX	RMS
+	0.93	.7902	.0917	*.0684* Tie best
+	0.94	.7905	.0947	.0701
+	0.945	.7904	.0963	.0729
+	0.95	.7906	.1002	.0757
+		.7892	.0936	.0724
+
+
+0.93
+18
+['eps:1.4',
+ 'depth:14',
+ 'eta:0.001',
+ 'weight:1.0',
+ 'lamb:1e-06',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.001']
+118
+
+0.94 *** (128-133)
+19
+['eps:1.4',
+ 'depth:12',
+ 'eta:0.001',
+ 'weight:1.0',
+ 'lamb:1e-06',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.001']
+133
+
+0.945 
+19
+['eps:1.0',
+ 'depth:12',
+ 'eta:0.001',
+ 'weight:1.0',
+ 'lamb:1e-06',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.001']
+184
+
+0.95
+19
+['eps:1.2',
+ 'depth:14',
+ 'eta:0.001',
+ 'weight:0.1',
+ 'lamb:0.0001',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.001']
+167
+
+18
+['eps:1.0',
+ 'depth:14',
+ 'eta:0.001',
+ 'weight:1.0',
+ 'lamb:1e-06',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.001']
+144
+
+eps: 1.4 1.4 1.0 1.2 1.0
+Large depth (14 12 12 14 14)
+Eta all the same
+Weight all the same
+lambda small 1e-6 (one at 0.0001)
+
+Point to check out
+scons 0.945	.8193	.16631	.1288
+178 steps
+['eps:0.4',
+ 'depth:10',
+ 'eta:0.005',
+ 'weight:0.1',
+ 'lamb:1e-06',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.001']
+
+Payment for higher scons is lower at higher accuracies.
+At scons .95, you may as well choose 82% accuracy (almost all points are above .15 max in this range) which is actually not a bad thing
+
+
+
+Higher accuracy
+.81
+
+	Scons	accc	max	rms	
+	0.93	.8099	.128	.0937*
+	0.94	.8097	.1334	.1036*
+	0.945	.8106	.1388	.1054 (might not be as good irl)
+	0.95	.8097	.1607	.1220
+
+.815
+	Scons	accc	max	rms
+	0.93	.8160	.1442	.1092*
+	(0.93	.8144	.1406	.1042*	
+	0.94	.8147	.1451	.1105 eee on the cusp.
+	0.945	"	"	"
+	0.95	.8158	.1477	.1158
+
+.82
+	Scons	accc	max	rms
+	0.93	.8208	.1649	.1279 (better only than baselines)
+	0.94	.8208	"	"  This is a good point though.
+	0.945	.8210	.1693	.1351
+	0.95	.8200	.1648	.1312
+	(also the previous point is still here)
+
+.825 the gaps are getting really quite high... don't know if we want to go there.
+(.159, .2 at best - that's basically baseline) 
+
+
+SCONS 93
+
+.8099
+['eps:1.0',
+ 'depth:14',
+ 'eta:0.001',
+ 'weight:1.0',
+ 'lamb:0.0001',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.001']
+
+.8160
+['eps:0.6',
+ 'depth:14',
+ 'eta:0.001',
+ 'weight:0.1',
+ 'lamb:0.0001',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.001']
+
+.8144
+['eps:1.0',
+ 'depth:14',
+ 'eta:0.001',
+ 'weight:1.0',
+ 'lamb:0.0001',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.001']
+
+.8208
+['eps:0.3',
+ 'depth:14',
+ 'eta:0.005',
+ 'weight:0.1',
+ 'lamb:0.0001',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.0001']
+
+Eps: [0.3, 0.6, 1.0, 1.0]
+depth :14
+eta: [1,1,1,5]
+weight: 1, .1, 1, .1
+lamb: 0.0001
+lr: 0.001 *3, 0.0001
+
+(tensorboard files make me feel better with lr 0.0001... but need to run more
+boosting this way probably.) 
+
+SCONS .94
+
+acc .8097
+steps: 144
+['eps:0.6',
+ 'depth:12',
+ 'eta:0.001',
+ 'weight:0.1',
+ 'lamb:1e-06',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.0001']
+
+.8147
+steps: 196
+['eps:0.4',
+ 'depth:14',
+ 'eta:0.001',
+ 'weight:1.0',
+ 'lamb:1e-06',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.0001']
+
+.8208
+197 steps boosting
+['eps:0.3',
+ 'depth:14',
+ 'eta:0.005',
+ 'weight:0.1',
+ 'lamb:0.0001',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.0001']
+
+SCONS .945
+
+acc .8106
+146 steps
+['eps:0.6',
+ 'depth:10',
+ 'eta:0.005',
+ 'weight:0.1',
+ 'lamb:1e-06',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.0001']
+
+.8147
+steps: 196
+['eps:0.4',
+ 'depth:14',
+ 'eta:0.001',
+ 'weight:1.0',
+ 'lamb:1e-06',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.0001']
+
+
+.8210
+188 steps
+['eps:0.3',
+ 'depth:14',
+ 'eta:0.005',
+ 'weight:1.0',
+ 'lamb:1e-06',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.0001']
+(ALSO SCONS .95)
+
+SCONS .95
+
+.8097
+146 steps
+['eps:1.4',
+ 'depth:6',
+ 'eta:0.001',
+ 'weight:0.1',
+ 'lamb:0.0001',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.001']
+
+.8158
+116 steps
+['eps:0.4',
+ 'depth:14',
+ 'eta:0.005',
+ 'weight:1.0',
+ 'lamb:1e-06',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.001']
+
+.8200
+162 steps 
+['eps:0.3',
+ 'depth:14',
+ 'eta:0.005',
+ 'weight:1.0',
+ 'lamb:1e-06',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.001']
+
+.8210
+188 steps
+['eps:0.3',
+ 'depth:14',
+ 'eta:0.005',
+ 'weight:1.0',
+ 'lamb:1e-06',
+ 'pos:0.0',
+ 'init:0.1',
+ 'epoch:200',
+ 'momentum:0.9',
+ 'lr:0.0001']

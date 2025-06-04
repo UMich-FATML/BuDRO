@@ -1,0 +1,49 @@
+German tuning test hyperparameters
+
+>>> param
+{'max_depth': 4, 'eta': 0.05, 'objective': 'binary:logistic', 'min_child_weight': 0.000625, 'lambda': 0.1, 'scale_pos_weight': 2.3333333333333335}
+
+It actually works here
+
+scons .96
+
+acc ~.713 small gaps .0616 .0866
+80 steps boosting
+eps 2.0
+{'max_depth': 4, 'eta': 0.0001, 'objective': 'binary:logistic', 'min_child_weight': 10.0, 'lambda': 0.001, 'scale_pos_weight': 2.3333333333333335}
+
+acc ~.7155 small gaps .06489 .0825
+85 steps boosting
+eps 2.0
+{'max_depth': 4, 'eta': 0.0001, 'objective': 'binary:logistic', 'min_child_weight': 10.0, 'lambda': 0.001, 'scale_pos_weight': 2.3333333333333335}
+
+(well that's nice)
+
+.97
+
+acc .0701 gaps .0642 .07827
+125 steps boosting
+eps 1.0
+{'max_depth': 7, 'eta': 0.005, 'objective': 'binary:logistic', 'min_child_weight': 0.01, 'lambda': 1.0, 'scale_pos_weight': 2.3333333333333335}
+
+acc .7131
+15 steps boosting...
+eps 1.0
+{'max_depth': 4, 'eta': 0.001, 'objective': 'binary:logistic' ,'min_child_weight': 0.01, 'lambda': 0.1, 'scale_pos_weight': 2.3333333333333335}
+
+
+0.7143 gaps .0986 .1298
+165 steps boosting
+eps 1.0
+{'max_depth': 10, 'eta': 0.01, 'objective': 'binary:logistic', 'min_child_weight': 0.01, 'lambda': 1.0, 'scale_pos_weight': 2.3333333333333335}
+
+.98 is harder it seems (Gaps pretty consistent at around .1 - .14
+
+Here's acc .714
+eps 1.0
+{'max_depth': 10, 'eta': 0.005, 'objective': 'binary:logistic', 'min_child_weight': 0.1, 'lambda': 1.0, 'scale_pos_weight': 2.3333333333333335}
+
+Options
+Eps 2, small max_depth, high min_child_weight, low lambda
+
+Eps ~1, max_depth 4/7/10, low min_child_weight, lambda 1 	
